@@ -1,0 +1,42 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.inputTask input {
+  border: black 1px solid;
+  width: 12rem;
+  height: 0.8rem;
+  padding: 0.8rem;
+}
+
+.inputTask button {
+  background-color: green;
+  color: white;
+  border-radius: 0;
+}
+
+.inputTask {
+  display: flex;
+  align-items: center;
+}
+
+.taskList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 4rem;
+  list-style: none;
+  cursor: pointer;
+}
+
+.taskList li label {
+  margin-left: 0.825rem;
+  margin-right: 3rem;
+}
+
+.taskList li button {
+  background-color: inherit;
+  border: black 1px solid;
+  border-radius: 0;
+}
