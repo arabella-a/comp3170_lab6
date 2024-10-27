@@ -1,40 +1,27 @@
-import React from "react"
+import React from "react";
 
-export default function Task({task, setTask}) {
+export default function Task({ task, setTask }) {
+    function handleDeleteTask() {
+        setTask(prevTasks => prevTasks.filter(t => t !== task));
+    }
 
+    function handleToggleTask() {
+        setTask(prevTasks =>
+            prevTasks.map(t => 
+                t === task ? { ...t, checked: !t.checked } : t
+            )
+        );
+    }
 
-    function handleDeleteTask(index) {
-        const newTask = [...task];
-        newTask.splice(index, 1);
-        setTask(newTask);
-    };
-
-    function handleToggleTask(index) {
-        const newTask = [...task];
-        newTask[index].checked = !newTask[index].checked;
-        setTask(newTask);
-    };
-
-    return(
-        <>
-            <div>
-                <h2>You have {task.length} tasks remaining</h2>
-                <div className="taskList">
-                    <ul>
-                        {task.map((task, index) => (
-                            <li key={index}>
-                                <div className="inputLabel">
-                                    <input type="checkbox" checked={task.checked} onChange={() => handleToggleTask(index)}/>
-                                    <label style={{textDecoration: task.checked ? "line-through" : "none"}}>
-                                        {task.text}
-                                    </label>
-                                </div>
-                                <button onClick={() => handleDeleteTask(index)} className="removeBtn">Remove</button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+    return (
+        <div className="tasks">
+            <div className="inputLabel">
+                <input type="checkbox" checked={task.checked} onChange={handleToggleTask} />
+                <label style={{ textDecoration: task.checked ? "line-through" : "none" }}>
+                    {task.text}
+                </label>
             </div>
-        </>
-    )
+            <button onClick={handleDeleteTask} className="removeBtn">Remove</button>
+        </div>
+    );
 }

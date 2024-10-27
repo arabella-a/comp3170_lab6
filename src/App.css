@@ -40,3 +40,34 @@
   border: black 1px solid;
   border-radius: 0;
 }
+
+.tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.inputLabel label {
+  margin-left: 1rem;
+  font-weight: 600;
+}
+
+.tasks button {
+  background-color: inherit;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+
+.categoryBtn button{
+  background-color: inherit;
+  border: 1px solid #000;
+  border-radius: 0;
+  margin: 0.2rem;
+  margin-top: 2rem;
+}
+
+.categoryBtn {
+  width: 100%;
+}
